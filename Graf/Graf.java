@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 
+// Autor: Marc Garrido
 
 public class Graf {
 	
 	
-	private double[][]paperAutor;
-	private int paperConferencia[][];
-	private int paperTerme[][];
+	private Matriu paperAutor;
+	private Matriu paperConferencia;
+	private Matriu paperTerme;
 
 	private ArrayList<Node> paper;
 	private ArrayList<Node> conferencia;
@@ -16,9 +17,9 @@ public class Graf {
 	
 	public Graf()
 	{
-		paperAutor = Matriu(10,10);
-		paperConferencia = new int[10][10];
-		paperTerme = new int[10][10];
+		paperAutor = new Matriu();
+		paperConferencia = new Matriu();
+		paperTerme = new Matriu();
 		
 		paper = new ArrayList<Node>();
 		conferencia = new ArrayList<Node>();
