@@ -2,7 +2,6 @@ package matriu;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println(" ==== TEST 01 - SUMAS =====");
 		double[][] datosA01 = {{1,3,1},{1,0,0}};
 		double[][] datosB01 = {{0,0,5},{7,5,0}};
 		double[][] datosA02 = {{1,3,1},{1,0,0},{4,-1,3}};
@@ -10,7 +9,9 @@ public class Main {
 		
 		Matriu a = new Matriu();
 		Matriu b = new Matriu();
-		a.setData(datosA02);
+		a.print_matriu();
+		
+		/*a.setData(datosA02);
 		b.setData(datosB02);
 		
 		System.out.println(" ==== Matriz A =====");
@@ -39,5 +40,6 @@ public class Main {
 		a.get_fila_iessima(1).print_matriu();
 		System.out.println();
 		a.get_fila_iessima(2).print_matriu();
+		*/
 	}
 }
