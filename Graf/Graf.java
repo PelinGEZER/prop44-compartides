@@ -146,19 +146,19 @@ public class Graf {
 			Node.TipusNode Tn = node.get_tipus_node();
 			switch (Tn) {
 			case AUTOR: 
-				this.autor.remove(node);
+				this.autor.remove(i);
 				this.autor.add(node);
 				break;
 			case PAPER: 
-				this.paper.remove(node);
+				this.paper.remove(i);
 				this.paper.add(node);
 				break;
 			case TERME:
-				this.terme.remove(node);
+				this.terme.remove(i);
 				this.terme.add(node);
 				break;
 			case CONFERENCIA:
-				this.conferencia.remove(node);
+				this.conferencia.remove(i);
 				this.conferencia.add(node);
 				break;
 			}
