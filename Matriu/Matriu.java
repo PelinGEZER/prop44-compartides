@@ -6,7 +6,7 @@ public class Matriu {
 	private double[][] data;
 	
 	////////////////////////////////////////////////////////////////////////////
-	//								CLASSE PRIVADA				   			  //
+	//                            CLASSE PRIVADA                              //
 	////////////////////////////////////////////////////////////////////////////
 	
 	private class SubMatriu {
@@ -26,12 +26,13 @@ public class Matriu {
 			double[][] c = new double[this.tamany][this.tamany];
 			for (int i = 0; i < this.tamany; i++) {
 				for (int j = 0; j < this.tamany; j++) {
-					c[i][j] = this.data[filaInici+i][columnaInici+j] + b.data[b.filaInici+i][b.columnaInici+j];
+					c[i][j] = this.data[filaInici+i][columnaInici+j] +
+							  b.data[b.filaInici+i][b.columnaInici+j];
 				}
 			}
 
 			Matriu m = new Matriu(this.tamany, this.tamany);
-			m.setData(c);
+			m.set_data(c);
 			return m;
 		}
 		
@@ -39,12 +40,13 @@ public class Matriu {
 			double[][] c = new double[this.tamany][this.tamany];
 			for (int i = 0; i < this.tamany; i++) {
 				for (int j = 0; j < this.tamany; j++) {
-					c[i][j] = this.data[filaInici+i][columnaInici+j] - b.data[b.filaInici+i][b.columnaInici+j];
+					c[i][j] = this.data[filaInici+i][columnaInici+j] - 
+							  b.data[b.filaInici+i][b.columnaInici+j];
 				}
 			}
 
 			Matriu m = new Matriu(this.tamany, this.tamany);
-			m.setData(c);
+			m.set_data(c);
 			return m;
 		}		
 		
@@ -57,7 +59,7 @@ public class Matriu {
 			} 
 			
 			Matriu m = new Matriu(this.tamany, this.tamany);
-			m.setData(c);
+			m.set_data(c);
 			return m;		
 		}
 	}
@@ -119,7 +121,7 @@ public class Matriu {
 		int tamany = this.data.length;
 		if (tamany < this.data[0].length) tamany = this.data[0].length;
 		Matriu matriu_quadrada = new Matriu(tamany, tamany);
-		matriu_quadrada.setData(this.data);
+		matriu_quadrada.set_data(this.data);
 		
 		for (int i = tamany; i < this.data.length; i++) {
 			for (int j = 0; j < this.data.length; j++) {
@@ -158,14 +160,14 @@ public class Matriu {
 	// Pre:  Cert.
 	// Post: Retorna una referència a les dades de la matriu.
 	// Cost: O(1)
-	public double[][] getData() {
+	public double[][] get_data() {
 		return data;
 	}
 
 	// Pre:  Cert.
 	// Post: La matriu implicita apunta amb una referència a la matriu de dades.
 	// Cost: O(1).
-	public void setData(double[][] data) {
+	public void set_data(double[][] data) {
 		this.data = data;
 	}
 		
@@ -203,7 +205,8 @@ public class Matriu {
 	}
 	
 	// Pre:  Anomanem la matriu implícita com A i la matriu pasada per referència 
-	//		 com B, B != NULL,  A té que estar inicialitzada.
+	//		 com B, B != NULL,  A té que estar inicialitzada. El nombre files de 
+	//		 la Matriu A té que ser igual al nombre de columnes de la Matriu B.
 	// Post: Retorna una matriu C com a resultat de multiplicar la matriu
 	//		 implícita (A) amb la matriu B. C = A * B.
 	// Cost: O(n^2,807).
@@ -214,7 +217,8 @@ public class Matriu {
 	}
 	
 	// Pre:  Anomanem la matriu implícita com A i la matriu pasada per referència 
-	//		 com B, B != NULL,  A té que estar inicialitzada.
+	//		 com B, B != NULL,  A té que estar inicialitzada. El nombre files de 
+	//		 la Matriu A té que ser igual al nombre de columnes de la Matriu B.
 	// Post: Retorna una matriu C com a resultat de multiplicar la matriu
 	//		 implícita (A) amb la matriu B. C = A * B.
 	// Cost: O(n³).
@@ -272,7 +276,7 @@ public class Matriu {
 	// Cost: O(n²).
 	public Matriu normalitzar_columna() {
 		Matriu m = new Matriu(this.data.length, this.data[0].length);
-		for (int i = 0; i < this.data.length; i++) {
+		for (int i = 0; i < this.data[0].length; i++) {
 			double norma = 0;
 			for (int j = 0; j < this.data.length; j++) {
 				norma += Math.pow(this.data[j][i], 2);
